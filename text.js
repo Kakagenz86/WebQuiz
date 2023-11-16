@@ -97,32 +97,34 @@ function showQuestions(index) {
 }
 
 function optionsSelected(answer) {
-    let userAnswer = answer.textContent;
-    let correctAnswer = questions[questionCount].answer;
-    let allOptions = optionList.children.length;
+    // Hanya memproses jika pengguna belum membuat pilihan sebelumnya
+    if (!answer.classList.contains('disabled')) {
+        let userAnswer = answer.textContent;
+        let correctAnswer = questions[questionCount].answer;
+        let allOptions = optionList.children.length;
 
-    if (userAnswer == correctAnswer) {
-        answer.classList.add('correct');
-        userScore += 1;
-        headerScore();
-    }
-    else {
-        answer.classList.add('incorrect');
+        if (userAnswer == correctAnswer) {
+            answer.classList.add('correct');
+            userScore += 1;
+            headerScore();
+        } else {
+            answer.classList.add('incorrect');
 
-        // if answer incorrect, auto selected correct answer
-        for(let i = 0; i < allOptions; i++) {
-            if(optionList.children[i].textContent == correctAnswer) {
-                optionList.children[i].setAttribute('class', 'option correct');
+            // Jika jawaban salah, otomatis pilih jawaban yang benar
+            for (let i = 0; i < allOptions; i++) {
+                if (optionList.children[i].textContent == correctAnswer) {
+                    optionList.children[i].classList.add('correct');
+                }
             }
         }
-    }
 
-    // if user has selected, disabled all options
-    for(let i = 0; i < allOptions; i++) {
-        optionList.children[i].classList.add('disabled');
-    }
+        // Menonaktifkan semua opsi setelah pengguna membuat pilihan
+        for (let i = 0; i < allOptions; i++) {
+            optionList.children[i].classList.add('disabled');
+        }
 
-    nextBtn.classList.add('active');
+        nextBtn.classList.add('active');
+    }
 }
 
 function questionCounter(index) {

@@ -100,8 +100,8 @@ let questions = [
     },
     {
         numb: 10,
-        question: " Apa kegunaan media query dalam CSS?",
-        answer: "B. Bagaimana cara memberikan komentar di CSS?",
+        question: " Bagaimana cara memberikan komentar di CSS?",
+        answer: "B. /* Ini adalah komentar */?",
         options: [
             "A. -- Ini adalah komentar --",
             "B. /* Ini adalah komentar */",
