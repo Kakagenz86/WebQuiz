@@ -449,6 +449,11 @@ body {
 }
 
 @media (max-width: 576px) {
+    .header .logo {
+        position: relative;
+        left: 10px;
+    }
+    
     .navbar {
         display: flex;
     }
@@ -469,5 +474,9 @@ body {
     .home .home-content p {
         font-size: 15px;
         width: 350px;
+    }
+
+    .popup-info {
+        width: 400px;
     }
 }
